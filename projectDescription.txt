@@ -1,0 +1,375 @@
+Course Name & code : Software Engineering Lab & BCSE301P
+L15+L16
+Name: Vatsal Jha
+Reg No: 22BCT0192
+Assessment -1
+1. Analysis and Identification of the suitable process models.
+1. Define the Project Scope and Boundaries
+• Scope: AI-powered resume evaluation tool designed to provide actionable feedback for job
+applicants
+• Included Capabilities:
+o Advanced resume parsing with intelligent data extraction
+o Intelligent keyword analysis aligned with job descriptions
+o Comprehensive resume scoring mechanism
+o Personalized improvement recommendations
+o Intuitive user interface for seamless interaction
+• Excluded Features:
+o External applicant tracking system integrations
+o Multi-user collaborative functionality
+o Complex enterprise-level customizations
+Intended Outcomes:
+• Develop a rapid, accurate resume analysis application
+• Create an engaging, user-friendly interface
+• Provide meaningful, actionable feedback to job seekers
+2. Clarify Project Goals
+• Primary Objectives:
+o Develop a sophisticated NLP-powered resume parsing system
+o Create intelligent keyword matching and evaluation algorithms
+o Design a responsive, user-centric interface
+o Ensure high-accuracy, efficient resume analysis
+• Measurable Success Metrics:
+o 95% accuracy in parsing diverse resume formats
+o Sub-3 second analysis processing time
+o Minimum 85% user satisfaction in comprehensive usability testing
+3. Constraint Analysis
+• Project Timeline:
+o Total Duration: 7 weeks
+o Week 1: Comprehensive requirement analysis and strategic planning
+o Weeks 2-3: Core module development (parsing and matching algorithms)
+o Weeks 4-5: System integration and user experience design
+o Week 6: Rigorous testing and systematic debugging
+o Week 7: Final deployment and project presentation
+• Resource Constraints:
+o Technical Expertise: Python, NLP technologies, Machine Learning frameworks
+o Budget Limitations: Prioritizing open-source tools and pre-trained models
+o Technology Stack: Leveraging spaCy/NLTK, PyTorch, cloud platforms
+4. Strategic Considerations
+• Technological Flexibility:
+o Multi-format resume support (PDF, DOCX, TXT, JSON)
+o Adaptive parsing capabilities
+• Compliance and Risk Management:
+o Strict adherence to GDPR and CCPA data protection regulations
+o Robust data privacy and security protocols
+• Continuous Improvement:
+o Integrated feedback mechanism for HR professionals
+o Mechanism to identify and rectify algorithmic limitations
+5. Process Model Selection Chosen Model: Agile Development Methodology
+• Rationale for Selection:
+o Supports iterative, incremental development approach
+o Enables rapid adaptation to evolving project requirements
+o Facilitates continuous feedback integration
+o Promotes user-centric design and quick value delivery
+o Minimizes risk through frequent testing and validation cycles
+2. Work Break-down Structure (Process Based, Product Based, Geographic Based and Role Based) and
+Estimations (GANTT chart and PERT chart)
+
+3.Prepare SRS for your project as per the IEEE template.
+Copyright © 1999 by Karl E. Wiegers. Permission is granted to use, modify, and distribute this document.
+Software Requirements
+Specification
+for
+AI Resume Analyzer
+Prepared by Vatsal Jha(22BCT0192)
+VIT Vellore
+23rd January,2024
+Software Requirements Specification for AI RESUME ANALYZER
+Page ii
+Table of Contents
+Table of Contents .......................................................................................................................... ii
+1. Introduction ..............................................................................................................................1
+1.1 Purpose............................................................................................................................................. 1
+1.2 Document Conventions .................................................................................................................... 1
+1.3 Intended Audience and Reading Suggestions .................................................................................. 1
+1.4 Product Scope .................................................................................................................................. 1
+1.5 References ........................................................................................................................................ 1
+2. Overall Description ..................................................................................................................2
+2.1 Product Perspective.......................................................................................................................... 2
+2.2 Product Functions ............................................................................................................................ 2
+2.3 User Classes and Characteristics ..................................................................................................... 3
+2.4 Operating Environment .................................................................................................................... 3
+2.5 Design and Implementation Constraints .......................................................................................... 3
+2.6 User Documentation ........................................................................................................................ 3
+2.7 Assumptions and Dependencies ...................................................................................................... 4
+3. External Interface Requirements ...........................................................................................4
+3.1 User Interface
+3.2 Hardware Interfaces ......................................................................................................................... 4
+3.3 Software Interfaces
+3.4 Communication Interfaces .............................................................................................................. 5
+4. System Features .......................................................................................................................5
+4.1 Resume Parsing..................................................................................................................................
+4.2 Skill and Experience Extraction
+4.3 Compatibility Scoring
+4.4 Report Generation
+4.5 Data Anonymization .........................................................................................................................
+5. Other Nonfunctional Requirements .......................................................................................7
+5.1 Performance Requirements .............................................................................................................. 7
+5.2 Safety Requirements ........................................................................................................................ 7
+5.3 Security Requirements ..................................................................................................................... 7
+5.4 Reliability......................................................................................................................................... 7
+5.5 Scalability ........................................................................................................................................ 7
+6. Other Requirements ................................................................................................................8
+Appendix A: Glossary....................................................................................................................8
+Appendix B: Analysis Models .......................................................................................................8
+Appendix C: To Be Determined List ............................................................................................9
+Software Requirements Specification for AI RESUME ANALYZER
+Page 1
+1. Introduction
+1.1 Purpose
+This document provides a comprehensive specification for the AI Resume Analyzer, a
+cutting-edge software solution designed to revolutionize recruitment processes
+through advanced artificial intelligence and natural language processing
+technologies. It meticulously outlines the system's functionalities, technical
+requirements, and strategic objectives for transforming resume screening and
+candidate evaluation.
+1.2 Document Conventions
+• Main Title: Times New Roman, Bold, Font Size: 18
+• Sub Title: Times New Roman, Bold, Font Size: 14
+• Body Text: Times New Roman, Font Size: 14
+• Headers: Bold, Numbered for clarity and hierarchy.
+1.3 Intended Audience and Reading Suggestions
+This document targets multiple stakeholders:
+• Developers: Focus on technical specifications and implementation details
+• HR Professionals: Concentrate on product functionality and user interface
+• Project Managers: Review overall system architecture and requirements
+• Compliance Officers: Examine security and privacy considerations
+1.4 Product Scope
+The AI Resume Analyzer represents a transformative recruitment technology that
+automates and enhances candidate screening through intelligent resume analysis.
+Key objectives include:
+Software Requirements Specification for AI RESUME ANALYZER
+Page 2
+• Reducing recruitment cycle time by 50%
+• Improving candidate matching accuracy
+• Eliminating human bias in initial screening
+• Providing data-driven insights for talent acquisition
+1.5 References
+Natural Language Processing Resources:
+• NLTK: Natural Language Toolkit
+• SpaCy: Advanced NLP Library
+• URL: https://www.nltk.org/, https://spacy.io/
+Advanced Recruitment Technologies:
+• Workable ATS Documentation
+• LinkedIn Talent Solutions
+• URL: https://www.workable.com/, https://business.linkedin.com/
+Software Requirements Engineering:
+• Authors: Karl E. Wiegers, Joy Beatty
+• "Software Requirements" - 3rd Edition
+2. Overall Description
+2.1 Product Perspective
+The AI Resume Analyzer is an innovative, standalone solution designed to seamlessly
+integrate with modern HR ecosystems, leveraging advanced machine learning and
+natural language processing to transform recruitment workflows..
+2.2 Product Functions
+Core functionalities include:
+• Intelligent resume parsing across multiple document formats
+• Advanced skill and experience semantic extraction
+• Sophisticated compatibility and matching algorithms
+• Comprehensive anonymized reporting
+• Machine learning-powered candidate ranking
+Software Requirements Specification for AI RESUME ANALYZER
+Page 3
+2.3 User Classes and Characteristics
+Detailed user personas:
+• HR Professionals: Power users conducting high-volume recruitment
+• Hiring Managers: Periodic users seeking detailed candidate insights
+• Recruitment Analysts: Advanced users performing deep talent market analysis
+• IT Administrators: Managing system configuration and integration
+2.4 Operating Environment
+Technical infrastructure requirements:
+• Operating Systems: Windows 10+, macOS 11+, Ubuntu 20.04+
+• Runtime Environment: Python 3.9+
+• Minimum Hardware:
+o 8GB RAM
+o 4-core processor
+o 50GB storage
+• Network: Stable broadband internet connection (minimum 10 Mbps)
+2.5 Design and Implementation Constraints
+Key limitations and considerations:
+• Compliance with GDPR and CCPA privacy regulations
+• Dependency on external NLP libraries
+• Handling variability in resume document structures
+• Maintaining low computational overhead
+• Ensuring cross-platform compatibility
+Software Requirements Specification for AI RESUME ANALYZER
+Page 4
+2.6 User Documentation
+Comprehensive documentation suite:
+• Detailed user manual (PDF)
+• Interactive web-based help system
+• Video tutorials
+• Inline contextual guidance
+• API documentation for technical integrations
+2.7 Assumptions and Dependencies:
+• Resumes provided in standard formats (PDF, DOCX, TXT)
+• Availability of pre-trained machine learning models
+• Consistent internet connectivity
+• User familiarity with basic web interfaces
+3. External Interface Requirements
+3.1 User Interfaces
+The system will feature a modern, intuitive web-based dashboard with the following
+key characteristics:
+• Resume upload functionality with drag-and-drop support
+• Interactive results visualization
+• Customizable dashboard layout
+• Responsive design for desktop and mobile devices
+• Accessibility compliance (WCAG 2.1 guidelines)
+Software Requirements Specification for AI RESUME ANALYZER
+Page 5
+3.2 Hardware Interfaces
+- Supports local file system interactions for resume uploads
+- Compatible with cloud storage services (Google Drive, Dropbox)
+- Optimized for various hardware configurations:
+• Desktop computers
+• Laptops
+• Tablet devices
+• Minimal resource consumption
+3.3 Software Interfaces
+Integration capabilities:
+• NLP Libraries: NLTK, SpaCy
+• Machine Learning Frameworks: scikit-learn, TensorFlow
+• Applicant Tracking System (ATS) API connections
+• Export compatibility with HR management software
+3.4 Communications Interfaces
+- Secure communication protocols:
+• HTTPS for data transmission
+• OAuth 2.0 for authentication
+• RESTful API design
+- Notification mechanisms:
+• Email alerts
+• In-app notifications
+• Optional webhook integrations
+4. System Features
+4.1 Resume Parsing
+Description and Priority
+Software Requirements Specification for AI RESUME ANALYZER
+Page 6
+High-priority feature for extracting textual content from diverse
+resume formats.
+Functional Requirements
+• REQ-1: Parse PDF, DOCX, TXT, and RTF file formats
+• REQ-2: Implement robust error handling for incomplete or non-
+standard documents
+• REQ-3: Preserve original document formatting metadata
+• REQ-4: Support multi-page resume processing
+4.2 Skill and Experience Extraction
+Description and Priority
+Medium-priority feature for semantic analysis of professional experiences.
+Functional Requirements
+• REQ-5: Utilize advanced Named Entity Recognition (NER)
+• REQ-6: Create comprehensive skill taxonomy
+• REQ-7: Detect skill proficiency levels
+• REQ-8: Cross-reference skills with industry standards
+4.3 Compatibility Scoring
+- Description and Priority
+High-priority feature for matching candidate profiles with job
+requirements.
+- Functional Requirements
+• REQ-9: Develop configurable scoring algorithm
+• REQ-10: Support custom weighting of evaluation criteria
+• REQ-11: Generate detailed compatibility breakdown
+• REQ-12: Provide comparative analysis across multiple candidates
+4.4 Report Generation
+- Description and Priority
+Medium-priority feature for creating comprehensive candidate assessment
+reports.
+- Functional Requirements
+• REQ-13: Generate interactive, visually appealing reports
+• REQ-14: Support multiple export formats (PDF, HTML)
+• REQ-15: Include data visualizations
+• REQ-16: Provide executive summary and detailed analysis
+4.5 Data Anonymization
+- Description and Priority
+Software Requirements Specification for AI RESUME ANALYZER
+Page 7
+Critical priority for ensuring candidate privacy and regulatory compliance.
+- Functional Requirements
+• REQ-17: Implement GDPR and CCPA compliant anonymization
+• REQ-18: Allow configurable anonymization levels
+• REQ-19: Securely mask personally identifiable information
+• REQ-20: Maintain data integrity during anonymization process
+5. Other Nonfunctional Requirements
+5.1 Performance Requirements
+• Process minimum 10 resumes per minute
+• Maximum 30-second analysis time per resume
+• Low memory footprint (<500MB per processing instance)
+• Horizontal scalability for concurrent processing
+5.2 Safety Requirements
+• Automated backup mechanisms
+• Error recovery and logging
+• Controlled system shutdown procedures
+• Data validation and sanitization
+5.3 Security Requirements
+• End-to-end data encryption
+• Role-based access control (RBAC)
+• Multi-factor authentication
+• Regular security audits
+• Compliance with international data protection standards
+5.4 Software Quality Attributes
+• 99.9% uptime guarantee
+• Graceful error handling
+• Comprehensive logging
+• Self-diagnostic capabilities
+5.5 Business Rules
+• Cloud-native architecture
+Software Requirements Specification for AI RESUME ANALYZER
+Page 8
+• Microservices design
+• Support for distributed processing
+• Elastic resource allocation
+6. Other Requirements
+Includes future provisions for database integration, internationalization for multi-
+language support, and adherence to legal and regulatory standards.
+Appendix A: Glossary
+This section defines terms, acronyms, and abbreviations used in the SRS to ensure
+clarity and proper interpretation:
+• AI: Artificial Intelligence.
+• NLP: Natural Language Processing, a subset of AI focused on understanding
+and processing human language.
+• ATS: Applicant Tracking System, software used to manage recruitment
+processes.
+• NER: Named Entity Recognition, an NLP technique for identifying entities like
+names, dates, and locations in text.
+• GDPR: General Data Protection Regulation, a European Union regulation on
+data protection and privacy.
+• Compatibility Score: A metric indicating how well a candidate’s resume aligns
+with a job description.
+• Anonymization: The process of removing or masking personal identifiers from
+data.
+Appendix B: Analysis Models
+This section includes models that provide a deeper understanding of the system's
+design and functionality:
+• 1. Data Flow Diagram (DFD)
+Illustrates the flow of data through the system, from resume input to report
+generation. Key components include:
+• Input: Resume file (PDF/DOCX).
+• Processes: Parsing, skill extraction, compatibility scoring.
+• Output: Compatibility report.
+• 2. Class Diagram
+Outlines the main classes in the system and their relationships:
+• Classes: ResumeParser, SkillExtractor, CompatibilityScorer, ReportGenerator.
+• Relationships:
+o ResumeParser → SkillExtractor (uses parsed data).
+o CompatibilityScorer → ReportGenerator (feeds scores for report
+creation).
+• 3. State-Transition Diagram
+Represents the states of a resume during processing:
+• States: Uploaded → Parsed → Analyzed → Report Generated.
+• Transitions: Triggered by user actions or system processes.
+• 4. Entity-Relationship Diagram (ERD)
+Software Requirements Specification for AI RESUME ANALYZER
+Page 9
+Defines entities like User, Resume, Job Description, and their relationships. For
+example:
+• A User uploads multiple Resumes.
+• Each Resume is analyzed against one Job Description.
+Appendix C: To Be Determined List
+This section tracks unresolved or pending items that need further clarification or
+decisions:
+1. TBD-1: Final selection of third-party NLP library for resume parsing
+2. TBD-2: Decision on the level of anonymization required for compliance with
+GDPR.
+3. TBD-3: Confirmation of supported languages for multi-language resume
+processing.
+4. TBD-4: Details on integration with existing ATS platforms (e.g., API
+specifications).
+5. TBD-5: Performance benchmarking criteria for bulk resume processing.
