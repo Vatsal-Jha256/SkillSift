@@ -5,9 +5,12 @@ from sqlalchemy.orm import sessionmaker
 from app.core.config import settings
 
 # Create SQLAlchemy engine
+SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
+
+# Create SQLAlchemy engine
 engine = create_engine(
-    settings.DATABASE_URL, 
-    connect_args={"check_same_thread": False} if settings.DATABASE_URL.startswith("sqlite") else {},
+    SQLALCHEMY_DATABASE_URL, 
+    connect_args={"check_same_thread": False} if SQLALCHEMY_DATABASE_URL.startswith("sqlite") else {},
     echo=settings.DATABASE_ECHO
 )
 
@@ -24,3 +27,26 @@ def get_db():
         yield db
     finally:
         db.close() 
+
+def create_test_user():
+    """Create test user for testing"""
+    from app.core.models import User
+    from app.core.security import get_password_hash
+    
+    db = SessionLocal()
+    try:
+        test_user = User(
+            email="test@example.com",
+            hashed_password=get_password_hash("testpassword"),
+            full_name="Test User",
+            is_active=True
+        )
+        db.add(test_user)
+        db.commit()
+        db.refresh(test_user)
+        return test_user
+    except Exception as e:
+        db.rollback()
+        raise e
+    finally:
+        db.close()

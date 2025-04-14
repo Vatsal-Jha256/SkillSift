@@ -1,19 +1,24 @@
 import pytest
 from PIL import Image
 import io
+from reportlab.pdfgen import canvas
 from app.services.ocr_service import OCRService
 from app.core.exceptions import OCRError
 
 @pytest.fixture
 def sample_image_bytes():
-    # Create a simple image with text for testing
+    """Create a test image with text"""
     image = Image.new('RGB', (100, 30), color='white')
     return image
 
 @pytest.fixture
-def sample_pdf_bytes(sample_pdf_bytes):
-    # Reuse the sample PDF bytes from conftest.py
-    return sample_pdf_bytes
+def sample_pdf_bytes():
+    """Create a minimal PDF with text for testing"""
+    buffer = io.BytesIO()
+    c = canvas.Canvas(buffer)
+    c.drawString(10, 10, "Sample Test Document")
+    c.save()
+    return buffer.getvalue()
 
 def test_extract_text_from_image(sample_image_bytes):
     """Test OCR text extraction from image"""
@@ -50,4 +55,4 @@ def test_invalid_image_bytes():
 def test_invalid_pdf_bytes():
     """Test handling of invalid PDF data"""
     with pytest.raises(OCRError):
-        OCRService.extract_text_from_pdf(b"invalid pdf data") 
+        OCRService.extract_text_from_pdf(b"invalid pdf data")

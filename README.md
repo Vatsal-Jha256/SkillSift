@@ -1,83 +1,50 @@
-# SkillSift - AI Resume Analyzer
+# SkillSift
 
-## Project Overview
-SkillSift is an AI-powered resume analysis tool that helps job seekers and recruiters by providing intelligent resume parsing, skill extraction, and job compatibility scoring. The application uses advanced NLP techniques to analyze resumes and provide actionable feedback.
+SkillSift is a sophisticated resume analysis and career development platform that helps match candidates with job opportunities by analyzing skills, generating customized reports, and providing market insights.
 
-## Phase 1 Completion Report
+## Features
 
-### 1. Backend Architecture Refinement ✅
-- [x] Implemented dependency injection using FastAPI's dependency system
-- [x] Added SQLAlchemy database integration with User model
-- [x] Implemented comprehensive error handling with custom exceptions
-- [x] Added request validation using Pydantic models
-- [x] Implemented structured logging system
+- **Resume Analysis**
+  - Extracts skills and experience from resumes
+  - Supports multiple file formats (PDF, DOCX, etc.)
+  - Optional OCR capabilities for scanned documents
+  - Personal information anonymization
 
-### 2. Resume Parsing Enhancement ✅
-- [x] Improved PDF parsing to handle multi-page resumes
-- [x] Added structured data extraction (contact info, education, experience)
-- [x] Implemented resume section detection
-- [x] Added support for multiple file formats
-- [x] Enhanced error handling for parsing operations
+- **Job Market Analysis**
+  - Salary range insights
+  - Job market demand tracking
+  - Career path guidance
+  - Industry trends analysis
 
-### 3. Skill Extraction Enhancement ✅
-- [x] Expanded skill taxonomy with categories
-- [x] Implemented context-aware skill extraction
-- [x] Added skill proficiency level detection
-- [x] Implemented skill normalization
-- [x] Added categorized skill output
+- **Customized Reports**
+  - PDF report generation
+  - Interactive HTML reports
+  - Comparative analysis
+  - Historical tracking
 
-### 4. Compatibility Scoring Enhancement ✅
-- [x] Implemented weighted scoring system
-- [x] Added experience level matching
-- [x] Added education level matching
-- [x] Implemented skill relevance scoring
-- [x] Added detailed scoring breakdown
+- **Privacy & Security**
+  - GDPR compliance
+  - Data encryption
+  - Secure file handling
+  - User data export/deletion capabilities
 
-### 5. Testing Enhancement ✅
-- [x] Added comprehensive unit tests
-- [x] Implemented integration tests
-- [x] Added test fixtures and utilities
-- [x] Improved test coverage
-- [x] Added error case testing
+## Getting Started
 
-## Project Structure
-```
-app/
-├── core/               # Core functionality
-│   ├── config.py      # Configuration settings
-│   ├── database.py    # Database connection
-│   ├── dependencies.py # Dependency injection
-│   ├── exceptions.py  # Custom exceptions
-│   ├── logging.py     # Logging configuration
-│   ├── models.py      # Database models
-│   └── security.py    # Authentication & security
-├── routes/            # API routes
-│   └── resume_routes.py
-├── services/          # Business logic
-│   ├── parser.py
-│   ├── skill_extractor.py
-│   ├── scorer.py
-│   ├── reporter.py
-│   └── job_description_parser.py
-└── main.py           # Application entry point
+### Prerequisites
 
-tests/               # Test suite
-├── conftest.py     # Test configuration
-├── test_parser.py
-├── test_skill_extractor.py
-├── test_scorer.py
-└── test_reporter.py
-```
+- Python 3.8+
+- PostgreSQL
+- Virtual environment (recommended)
 
-## Setup and Installation
+### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/skillsift.git
-cd skillsift
+git clone https://github.com/yourusername/SkillSift.git
+cd SkillSift
 ```
 
-2. Create a virtual environment:
+2. Create and activate virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -88,64 +55,65 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Run the application:
+4. Set up environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your configuration
+```
+
+5. Initialize the database:
+```bash
+alembic upgrade head
+```
+
+### Running the Application
+
 ```bash
 uvicorn app.main:app --reload
 ```
 
-5. Run tests:
-```bash
-pytest tests/
-```
+The API will be available at `http://localhost:8000`
 
 ## API Documentation
 
-The API documentation is available at:
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
+After starting the server, visit:
+- Swagger UI: `http://localhost:8000/docs`
+- ReDoc: `http://localhost:8000/redoc`
 
-### Main Endpoints
+## API Endpoints
 
-1. Authentication:
-```
-POST /token
-- Form data: username, password
-```
+### Resume Analysis
+- `POST /analyze-resume/` - Analyze resume and extract skills
+- `GET /generate-pdf-report/` - Generate PDF analysis report
+- `POST /generate-html-report/` - Generate interactive HTML report
 
-2. Resume Analysis:
-```
-POST /api/resume/analyze-resume/
-- Headers: Authorization: Bearer <token>
-- Form data: file (resume file)
-- Optional: job_description (string), job_requirements (list of strings)
-```
+### Market Data
+- `GET /salary/{job_title}` - Get salary ranges
+- `GET /demand/{job_title}` - Get job market demand
+- `GET /career-path/{role}` - Get career progression paths
+- `GET /trends/{industry_name}` - Get industry trends
 
-3. Report Generation:
-```
-POST /api/resume/generate-report/
-- Headers: Authorization: Bearer <token>
-- Body: analysis_data (JSON)
-```
-
-## Environment Variables
-
-Create a `.env` file in the root directory with the following variables:
-```
-APP_NAME=SkillSift
-APP_VERSION=1.0.0
-SECRET_KEY=your-secret-key
-ACCESS_TOKEN_EXPIRE_MINUTES=30
-CORS_ORIGINS=["http://localhost:3000"]
-```
+### Privacy
+- `GET /privacy-policy` - View privacy policy
+- `POST /delete-data` - Request data deletion
+- `POST /export-data` - Request data export
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+2. Create your feature branch: `git checkout -b feature/AmazingFeature`
+3. Commit your changes: `git commit -m 'Add some AmazingFeature'`
+4. Push to the branch: `git push origin feature/AmazingFeature`
+5. Open a pull request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- FastAPI framework
+- SQLAlchemy ORM
+- Pydantic data validation
+- PyPDF2 for PDF processing
+- spaCy for NLP operations

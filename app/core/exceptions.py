@@ -61,6 +61,11 @@ class ResourceNotFoundError(ResumeAnalyzerException):
     def __init__(self, resource_type: str, resource_id: str):
         super().__init__(detail=f"{resource_type} with id {resource_id} not found", status_code=status.HTTP_404_NOT_FOUND)
 
+class NotFoundError(ResumeAnalyzerException):
+    """Exception for generic not found errors"""
+    def __init__(self, detail: str):
+        super().__init__(detail=detail, status_code=status.HTTP_404_NOT_FOUND)
+
 class OCRError(Exception):
     """Exception raised when there is an error performing OCR"""
     def __init__(self, message: str):

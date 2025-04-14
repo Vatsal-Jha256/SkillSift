@@ -1,0 +1,4 @@
+{
+  "name": "General Purpose",
+  "content": "Dear {hiring_manager},\n\nI am writing to express my interest in the {job_title} position at {company_name}. With my background in {background} and experience in {experience}, I believe I am well-suited for this role.\n\n{customized_content}\n\nMy key strengths that align with this position include:\n{skills_section}\n\nI am excited about the opportunity to bring my skills and experience to {company_name} and contribute to your team's success. I look forward to discussing how my background aligns with your needs.\n\nThank you for considering my application.\n\nSincerely,\n{applicant_name}\n"
+}

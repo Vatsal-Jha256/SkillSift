@@ -1,0 +1,4 @@
+{
+  "name": "Technical Role",
+  "content": "Dear {hiring_manager},\n\nI am applying for the {job_title} position at {company_name} that I saw advertised on {job_source}. As a professional with {experience} in {background}, I am confident in my ability to contribute effectively to your team.\n\n{customized_content}\n\nTechnical skills relevant to this position:\n{skills_section}\n\nI am particularly drawn to {company_name} because of {company_interest}. I am eager to apply my technical expertise to help achieve your company's goals.\n\nI would welcome the opportunity to discuss how my background and skills would be beneficial to your team. Thank you for considering my application.\n\nBest regards,\n{applicant_name}\n"
+}

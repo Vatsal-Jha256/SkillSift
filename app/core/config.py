@@ -1,6 +1,7 @@
 # app/core/config.py
 from typing import Optional, List
 from pydantic import BaseModel
+import os # Import os
 
 class Settings(BaseModel):
     PROJECT_NAME: str = "AI Resume Analyzer"
@@ -32,5 +33,14 @@ class Settings(BaseModel):
     # Logging settings
     LOG_LEVEL: str = "INFO"
     LOG_FORMAT: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    
+    # Hugging Face Inference API settings
+    HF_API_TOKEN: Optional[str] = os.getenv("HF_API_TOKEN")
+    HF_MODEL_API_URL="https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
+    
+    # Privacy and security settings
+    DATA_EXPORTS_DIR: str = "data/exports"
+    SECURE_UPLOADS_DIR: str = "data/secure_uploads"
+    AUDIT_LOGS_DIR: str = "data/audit_logs"
 
 settings = Settings()

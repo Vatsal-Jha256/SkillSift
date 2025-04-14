@@ -70,12 +70,14 @@ This document outlines a comprehensive improvement plan for the AI Resume Analyz
 
 ### Phase 2: Feature Expansion (Week 3-4)
 
-#### 2.1 AI-Powered Resume Improvement
-- **Implement skill gap analysis**
-- **Add personalized improvement suggestions**
-- **Implement resume optimization recommendations**
-- **Add keyword optimization for ATS systems**
-- **Implement formatting improvement suggestions**
+#### 2.1 AI-Powered Resume Improvement (Leveraging SLM)
+- **Implement skill gap analysis**: Identify missing skills compared to job requirements.
+- **Leverage SLM for contextual recommendations**: Utilize an SLM to generate specific, actionable suggestions based on skill gaps, resume content, and job description context, including:
+    - *Detailed skill development advice*: Suggesting specific courses, projects, or ways to rephrase existing experience.
+    - *Resume content optimization*: Providing tailored advice on rephrasing bullet points, quantifying achievements, and improving section flow.
+    - *Advanced keyword optimization*: Suggesting relevant keywords/phrases considering industry jargon and ATS best practices identified by the SLM.
+    - *Formatting and presentation feedback*: Offering specific advice on layout, clarity, and visual appeal.
+- **Integrate SLM Service**: Develop or integrate a service to manage interactions with the chosen SLM (API or local model).
 
 #### 2.2 Industry-Specific Analysis
 - **Add industry-specific skill taxonomies**
@@ -83,6 +85,16 @@ This document outlines a comprehensive improvement plan for the AI Resume Analyz
 - **Add salary range estimation**
 - **Implement job market demand analysis**
 - **Add career path recommendations**
+
+Next Steps for Phase 2.2:
+(Manual Task) Populate the industry_skill_sets table with some initial data for different industries (e.g., "Software Development", "Data Science", "Finance") using the new POST /api/industry/ endpoint (you can use curl or the FastAPI /docs page for this). You'll need your authentication token.
+Integrate with Analysis: Modify the core analysis logic (likely in app/services/scorer.py or potentially app/services/skill_extractor.py) to:
+Attempt to identify the industry from the job description (this might require another SLM call or a simpler classification approach).
+Fetch the relevant industry skill set using IndustryService.
+Use these industry-specific skills to potentially:
+Refine the skill_gaps calculation.
+Provide more context-aware recommendations (either via rules or by feeding this info to the SLM).
+Adjust scoring weights based on industry relevance.
 
 #### 2.3 Cover Letter Generation
 - **Implement template-based cover letter generation**
@@ -106,7 +118,7 @@ This document outlines a comprehensive improvement plan for the AI Resume Analyz
 - **Implement audit logging**
 
 ### Phase 3: Frontend Development (Week 5-6)
-
+ 
 #### 3.1 React Frontend Implementation
 - **Create responsive UI design**
 - **Implement file upload component**

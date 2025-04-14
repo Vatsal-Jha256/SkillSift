@@ -1,0 +1,5 @@
+{
+  "name": "Test Template",
+  "content": "Dear {hiring_manager},\nTest content\nRegards,\n{applicant_name}",
+  "industry": "Technology"
+}

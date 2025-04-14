@@ -104,9 +104,9 @@ class ResumeParser:
             str: Extracted text content
         """
         parsers = {
-            '.pdf': lambda content: cls.parse_pdf(content, use_ocr),
-            '.docx': cls.parse_docx,
-            '.txt': cls.parse_txt
+            'pdf': lambda content: cls.parse_pdf(content, use_ocr),
+            'docx': cls.parse_docx,
+            'txt': cls.parse_txt
         }
         
         parser = parsers.get(file_extension.lower())

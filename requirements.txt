@@ -6,6 +6,9 @@ python-dotenv==1.0.0
 fastapi-cors==0.0.6
 fastapi-swagger-ui==0.1.0
 
+# HTTP Client (Pinned for FastAPI/Starlette compatibility)
+httpx==0.22.0
+
 # Database
 sqlalchemy==2.0.15
 alembic==1.11.1
@@ -41,7 +44,7 @@ pytest-mock==3.11.1
 
 # Machine Learning and Data Processing
 scikit-learn==1.2.2
-numpy==1.24.3
+numpy==1.26.0
 pandas==2.0.2
 
 # Logging and Monitoring
@@ -53,3 +56,10 @@ typing==3.7.4.3
 # Security
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
+
+# Add requests for Hugging Face API calls
+requests
+
+# Added from the code block
+matplotlib==3.8.0
+plotly==6.0.1

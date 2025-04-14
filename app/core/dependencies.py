@@ -7,6 +7,8 @@ from app.core.database import get_db
 from app.core.security import verify_token
 from app.core.models import User
 from app.core.exceptions import AuthenticationError
+from app.services.job_description_parser import JobDescriptionParser
+from app.services.slm_service import SLMService
 
 # OAuth2 scheme for token authentication
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
@@ -44,3 +46,17 @@ def get_current_active_user(
     """Get the current active user"""
     # Add any additional checks for active users here
     return current_user 
+
+# Dependency for JobDescriptionParser
+job_description_parser_instance = JobDescriptionParser() # Create a single instance
+
+def get_job_description_parser() -> JobDescriptionParser:
+    """Dependency to get the JobDescriptionParser instance"""
+    return job_description_parser_instance 
+
+# Dependency for SLMService
+slm_service_instance = SLMService() # Create a single instance
+
+def get_slm_service() -> SLMService:
+    """Dependency to get the SLMService instance"""
+    return slm_service_instance 

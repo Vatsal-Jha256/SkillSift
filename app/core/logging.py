@@ -24,3 +24,6 @@ def setup_logging():
 
 # Create logger instance
 logger = setup_logging() 
+
+# Optionally add handler for file logging
+# ... existing code ... 
